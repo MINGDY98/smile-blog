@@ -34,17 +34,16 @@ const CreateText= styled(Typography)`
 
 const NavigationBar = () => {
 
-
   return (
     <NavigationWrapper>
       <ButtonWrapper>
         <Title/>
-        <CreateButton>
+        <CreateButton
+          onClick={() => window.location.href="/write"}
+        >
           <CreateText>새 글 작성</CreateText>
-           
         </CreateButton>
       </ButtonWrapper>
-
     </NavigationWrapper>
   )
 }
