@@ -20,16 +20,16 @@ const CreateButton = styled(Button)`
 
   font-weight     : 600;
   font-size       : 14px;
-  background-color: #8FB896;
+  background-color: #46508c;
   border          : 1px solid #DDD;
   &:hover {
-    background-color : #7EA785;
+    background-color : #fc6020;
   }
 `
 
 const CreateText= styled(Typography)`
-  font-size     : 14px;
-  color         : #333333;
+  font-size       : 14px;
+  color           : white;
 `
 
 const NavigationBar = () => {
