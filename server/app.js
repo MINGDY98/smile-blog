@@ -69,6 +69,17 @@ app.get('/profile', async (req, res, next) => {
     res.json({ code: 500, result: "error", message: e.message });
   }
 });
+
+app.get('/post', async (req, res, next) => {
+  try {
+    const result = await pool.query('SELECT * FROM smile_log.post')
+    res.json({ code: 200, result: "success", data : result[0] });
+  }
+  catch(e) {
+    res.json({ code: 500, result: "error", message: e.message });
+  }
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
