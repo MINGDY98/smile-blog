@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from "styled-components";
 import axios from 'axios';
 import {Container,Typography,InputBase} from '@material-ui/core';
+import { PrimaryButton } from '../styles/common';
 
 const PostInput = styled(InputBase)`
 	border          : 1.8px solid #46508c;
@@ -18,6 +19,12 @@ const ContentInput = styled(InputBase)`
 	margin          : 10px 0px 10px 0px;
 	color           : #676A59;
 	border-radius   : 5px;
+`
+
+const SubmitButton = styled(PrimaryButton)`
+	&:hover {
+		background: #46508c;
+	}
 `
 
 const WritePost= () => {
@@ -117,9 +124,9 @@ const WritePost= () => {
 				onChange={handleChange}
 			/>
 
-			<button onClick={handleSubmit} >
+			<SubmitButton onClick={handleSubmit} >
 				{id==null ? <Typography>작성</Typography>:<Typography>수정</Typography>}
-			</button>
+			</SubmitButton>
 		</Container>
   )
 }

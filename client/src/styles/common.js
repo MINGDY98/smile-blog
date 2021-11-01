@@ -14,4 +14,5 @@ export const PrimaryButton = styled(Button)`
   font-size       : 14px;
   background-color: #46508c;
   border          : 1px solid #DDD;
+  color           : white;
 `

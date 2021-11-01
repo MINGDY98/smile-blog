@@ -25,7 +25,6 @@ const CreateButton = styled(PrimaryButton)`
 
 const CreateText= styled(Typography)`
   font-size       : 14px;
-  color           : white;
 `
 
 const NavigationBar = () => {
