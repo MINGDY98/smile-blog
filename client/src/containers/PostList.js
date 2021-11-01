@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Post from '../components/Post';
-import Pagination from './Pagination';
+import Pagination from '../components/Pagination';
 const PostList = () => {
 
   const [posts, setPosts]=React.useState([]);
