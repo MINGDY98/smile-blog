@@ -4,7 +4,7 @@ import axios from 'axios';
 import styled from "styled-components"
 import Container from '@material-ui/core/Container';
 import dayjs from 'dayjs';
-
+import Comment from '../containers/Comment';
 const PostWrapper = styled.div`
   border          : 1px solid #46508c;
   padding         : 15px;
@@ -32,6 +32,10 @@ const EditButton = styled.button`
 const Wrapper = styled.div`
 	display					: flex;
 	justify-content	: space-between;
+`
+
+const ContentWrapper = styled.div`
+	min-height			: 250px;
 `
 
 const ReadPost = () => {
@@ -69,7 +73,9 @@ const ReadPost = () => {
 					</div>
 				</Wrapper>
 				<Line/>
-				{post.content}
+				<ContentWrapper>{post.content}</ContentWrapper>
+				<Line/>
+				<Comment id={id}/>
 			</PostWrapper>
 		</Container>
   )

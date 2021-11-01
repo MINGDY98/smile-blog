@@ -111,6 +111,31 @@ app.post('/update', async (req, res, next) => {
   }
 });
 
+//댓글
+
+app.post('/createComment', async (req, res, next) => {
+   
+  console.log("도착",req.body);
+  let {postId,id,password,comment}=req.body;
+  
+  try {
+    const sql=`Insert into smile_log.comment
+              Set postId=?,
+                  id=?, 
+                  password=?,
+                  comment=?;
+              `
+    const post = await pool.query(sql, [
+      postId,id,password,comment
+    ])
+    res.json({ code: 200, result: "success", data : post });
+  }
+  catch(e) {
+    console.log(e)
+    res.json({ code: 500, result: "error", message: e.message });
+  }
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
