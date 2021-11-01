@@ -3,11 +3,35 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styled from "styled-components"
 import Container from '@material-ui/core/Container';
+import dayjs from 'dayjs';
 
-export const PostWrapper = styled.div`
+const PostWrapper = styled.div`
   border          : 1px solid #46508c;
-  border-radius   : 5px;
   padding         : 15px;
+	margin          : 15px;
+	min-height			: 500px;
+`
+
+const Line = styled.hr`
+	margin					: 16px 0px;
+  border					: 1px solid #46508c;
+`
+
+const Date = styled.caption`
+	display					:inline-block;
+`
+
+const EditButton = styled.button`
+	border					: none;
+	background			: none;
+	display					:inline-block;
+	cursor					:pointer;
+	display					:inline-block;
+`
+
+const Wrapper = styled.div`
+	display					: flex;
+	justify-content	: space-between;
 `
 
 const ReadPost = () => {
@@ -20,7 +44,6 @@ const ReadPost = () => {
   }
 
 	React.useEffect(()=>{
-
 		callPostApi()
     .then(res=>{
       setPost(res.data[0]);
@@ -31,6 +54,19 @@ const ReadPost = () => {
   return (
 		<Container maxWidth="sm">
 			<PostWrapper>
+				<h2>{post.title}</h2>
+				<Wrapper>
+					<Date>{dayjs(post.date).format("YYYY년 MM월 DD일 HH:mm")}</Date>
+					<div>
+						<EditButton>
+							수정
+						</EditButton>
+						<EditButton>
+							삭제
+						</EditButton>
+					</div>
+				</Wrapper>
+				<Line/>
 				{post.content}
 			</PostWrapper>
 		</Container>

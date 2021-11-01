@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 import Title from '../components/Title';
-import { Typography,Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+import { PrimaryButton } from '../styles/common';
 
 const NavigationWrapper = styled.div`
 	height					: 40px;
@@ -16,12 +17,7 @@ const ButtonWrapper = styled.div`
   justify-content : space-between;
 `
 
-const CreateButton = styled(Button)`
-
-  font-weight     : 600;
-  font-size       : 14px;
-  background-color: #46508c;
-  border          : 1px solid #DDD;
+const CreateButton = styled(PrimaryButton)`
   &:hover {
     background-color : #fc6020;
   }
