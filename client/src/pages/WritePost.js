@@ -73,6 +73,7 @@ const WritePost= () => {
 					"content"   : values.content, 
 				}) 
 				.then( function (response) {
+					window.location.href="/";
 				}) 
 				.catch( error => {
 					console.log('error : ',error.response) 
@@ -86,6 +87,7 @@ const WritePost= () => {
 				}) 
 				.then( function (response) {
 					console.log(response,"수정이 되었습니다.");
+					window.location.href="/read/"+id;
 				}) 
 				.catch( error => {
 					console.log('error : ',error.response) 
