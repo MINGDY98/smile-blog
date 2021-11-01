@@ -27,17 +27,12 @@ app.post('/write', async (req, res, next) => {
   let {title,content}=req.body;
   
   try {
-
     const sql=`INSERT INTO smile_log.post 
     SET title=?, content=?;
     `
-    
     const post = await pool.query(sql, [
       title,content
     ])
-    
-    console.log(post);
-
     res.json({ code: 200, result: "success", data : post });
   }
   catch(e) {
@@ -46,6 +41,34 @@ app.post('/write', async (req, res, next) => {
   }
 });
 
+app.post('/upload', async (req, res, next) => {
+   
+  let {img}=req.body;
+  console.log("img",img);
+  try {
+    const sql=`UPDATE smile_log.user SET userImg=? WHERE userId=1;`
+    
+    const post = await pool.query(sql, [
+      img
+    ])
+    res.json({ code: 200, result: "success", data : post });
+  }
+  catch(e) {
+    console.log(e)
+    res.json({ code: 500, result: "error", message: e.message });
+  }
+});
+
+app.get('/profile', async (req, res, next) => {
+  try {
+    const result = await pool.query('SELECT userImg FROM smile_log.user WHere userId=1;')
+    console.log(result[0][0]);
+    res.json({ code: 200, result: "success", data : result[0][0] });
+  }
+  catch(e) {
+    res.json({ code: 500, result: "error", message: e.message });
+  }
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
