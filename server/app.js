@@ -69,7 +69,7 @@ app.get('/profile', async (req, res, next) => {
   }
 });
 
-app.get('/post', async (req, res, next) => {
+app.get('/postList', async (req, res, next) => {
   try {
     const result = await pool.query('SELECT * FROM smile_log.post')
     res.json({ code: 200, result: "success", data : result[0] });

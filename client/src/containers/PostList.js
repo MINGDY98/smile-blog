@@ -9,7 +9,7 @@ const PostList = () => {
   const [postsPerPage, setPostsPerPage] = React.useState(5);
 
   const callApi = async()=>{
-    const res = await axios.get('http://localhost:4000/post');
+    const res = await axios.get('http://localhost:4000/postList');
     return res.data
   }
 
