@@ -37,7 +37,6 @@ const Profile = () => {
     callLatestApi()
     .then(res=>{
       if(res!=null){//db에 img가 없으면 기본 프로필 배치.
-        console.log("뇽",res.userImg);
         setImage(res.userImg);
       }
     })

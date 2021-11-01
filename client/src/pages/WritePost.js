@@ -46,7 +46,6 @@ const WritePost= () => {
 				"content"   : values.content, 
 			}) 
 			.then( function (response) {
-				 console.log(response); 
 			}) 
 			.catch( error => {
 				console.log('error : ',error.response) 

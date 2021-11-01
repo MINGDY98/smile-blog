@@ -61,8 +61,7 @@ app.post('/upload', async (req, res, next) => {
 
 app.get('/profile', async (req, res, next) => {
   try {
-    const result = await pool.query('SELECT userImg FROM smile_log.user WHere userId=1;')
-    console.log(result[0][0]);
+    const result = await pool.query('SELECT userImg FROM smile_log.user Where userId=1;')
     res.json({ code: 200, result: "success", data : result[0][0] });
   }
   catch(e) {
@@ -73,6 +72,20 @@ app.get('/profile', async (req, res, next) => {
 app.get('/post', async (req, res, next) => {
   try {
     const result = await pool.query('SELECT * FROM smile_log.post')
+    res.json({ code: 200, result: "success", data : result[0] });
+  }
+  catch(e) {
+    res.json({ code: 500, result: "error", message: e.message });
+  }
+});
+
+app.get('/read/:id', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const sql=`SELECT * FROM smile_log.post Where idpost=?`
+    const result = await pool.query(sql, [
+      id
+    ]);
     res.json({ code: 200, result: "success", data : result[0] });
   }
   catch(e) {
