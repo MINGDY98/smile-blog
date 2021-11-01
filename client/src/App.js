@@ -23,6 +23,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Main}/>
+          <Route exact path="/write/:id" component={WritePost}/>
           <Route exact path="/write" component={WritePost}/>
           <Route exact path="/read/:id" component={ReadPost}/>
         </Switch>

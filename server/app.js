@@ -93,6 +93,24 @@ app.get('/read/:id', async (req, res, next) => {
   }
 });
 
+app.post('/update', async (req, res, next) => {
+   
+  let {id,title,content}=req.body;
+
+  try {
+    const sql=`UPDATE smile_log.post SET title=?, content=? where idpost=?;`
+    
+    const post = await pool.query(sql, [
+      title,content,id
+    ])
+    res.json({ code: 200, result: "success", data : post });
+  }
+  catch(e) {
+    console.log(e)
+    res.json({ code: 500, result: "error", message: e.message });
+  }
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

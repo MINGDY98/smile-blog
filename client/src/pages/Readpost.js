@@ -18,15 +18,15 @@ const Line = styled.hr`
 `
 
 const Date = styled.caption`
-	display					:inline-block;
+	display					:	inline-block;
 `
 
 const EditButton = styled.button`
 	border					: none;
 	background			: none;
-	display					:inline-block;
-	cursor					:pointer;
-	display					:inline-block;
+	display					:	inline-block;
+	cursor					:	pointer;
+	display					:	inline-block;
 `
 
 const Wrapper = styled.div`
@@ -58,7 +58,9 @@ const ReadPost = () => {
 				<Wrapper>
 					<Date>{dayjs(post.date).format("YYYY년 MM월 DD일 HH:mm")}</Date>
 					<div>
-						<EditButton>
+						<EditButton
+							onClick={() => window.location.href="/write/"+id}
+						>
 							수정
 						</EditButton>
 						<EditButton>

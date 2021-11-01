@@ -7,7 +7,7 @@ const Main = () => {
 
 	const ProfileWrapper = styled.div`
 		display					: flex;
-		justify-content: center;
+		justify-content	: center;
 	`
   return (
 		<Container maxWidth="sm">

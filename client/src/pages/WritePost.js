@@ -1,8 +1,8 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import styled from "styled-components";
 import axios from 'axios';
-import Container from '@material-ui/core/Container';
-import InputBase from '@material-ui/core/InputBase';
+import {Container,Typography,InputBase} from '@material-ui/core';
 
 const PostInput = styled(InputBase)`
 	border          : 1.8px solid #46508c;
@@ -21,10 +21,35 @@ const ContentInput = styled(InputBase)`
 `
 
 const WritePost= () => {
+
+	const { id } = useParams();//수정하기를 통해 들어왔을 경우.
+
   const [values, setValues] = React.useState({ 
     "title"        : "", 
 		"content"      : "", 
   });
+
+	const callPostApi = async()=>{
+    const response = await axios.get('http://localhost:4000/read/'+ id);
+    return response.data;
+  }
+
+	React.useEffect(()=>{
+		if(id==null){
+			//새로 작성할 포스트
+		}else{
+			//수정이 요청된 포스트
+			callPostApi()
+			.then(res=>{
+				setValues({ 
+					"title"        : res.data[0].title, 
+					"content"      : res.data[0].content,
+				});
+			})
+			.catch(err=>console.log(err));
+
+		}
+  }, []);
 
 	const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,21 +60,37 @@ const WritePost= () => {
   } 
 
 	const handleSubmit = ( e ) => {
+
 		if( values.title === "" ){
       alert( "제목을 입력해주세요." );
     }else if( values.content === "" ){
       alert( "내용을 입력해주세요." );
     }else{
-			alert( "등록완료." );
-			axios.post('http://localhost:4000/write',{ 
-				"title"   	: values.title, 
-				"content"   : values.content, 
-			}) 
-			.then( function (response) {
-			}) 
-			.catch( error => {
-				console.log('error : ',error.response) 
-			});
+			if(id==null){
+
+				axios.post('http://localhost:4000/write',{ 
+					"title"   	: values.title, 
+					"content"   : values.content, 
+				}) 
+				.then( function (response) {
+				}) 
+				.catch( error => {
+					console.log('error : ',error.response) 
+				});
+			}else{//수정할 경우
+
+				axios.post('http://localhost:4000/update',{
+					"id"				: id,
+					"title"   	: values.title, 
+					"content"   : values.content, 
+				}) 
+				.then( function (response) {
+					console.log(response,"수정이 되었습니다.");
+				}) 
+				.catch( error => {
+					console.log('error : ',error.response) 
+				});
+			}
 		}
   }
 
@@ -60,7 +101,7 @@ const WritePost= () => {
 				fullWidth
         name="title" 
         placeholder="제목을 입력하세요."
-				value={values.title} 
+				value={values.title}
 				onChange={handleChange}
       />
 
@@ -70,11 +111,12 @@ const WritePost= () => {
 				placeholder="당신의 이야기를 적어주세요."
 				multiline
 				rows={10}
-				value={values.content} 
+				value={values.content}
 				onChange={handleChange}
 			/>
+
 			<button onClick={handleSubmit} >
-				작성
+				{id==null ? <Typography>작성</Typography>:<Typography>수정</Typography>}
 			</button>
 		</Container>
   )
