@@ -2,6 +2,7 @@ import React from 'react';
 import { InputBase } from '@material-ui/core';
 import styled from "styled-components";
 import axios from 'axios';
+import Comment from '../components/Comment';
 
 const InfoWrapper = styled.div`
 	display					: flex;
@@ -11,28 +12,19 @@ const InfoWrapper = styled.div`
 const CommentInput = styled(InputBase)`
 	border          : 1.8px solid #46508c;
 	font-size       : 14px;
-	margin          : 10px 0px 10px 0px;
+	margin          : 12px 0px 12px 0px;
+	padding					: 12px 6px 12px 6px;
 	color           : #676A59;
 `
 
 const CommentsWrapper = styled.div`
-	font-size       	: 14px;
-	margin          	: 10px 0px 10px 0px;
-	background-color 	:	#f0f2f5;
-	height 						: 100px;
+	font-size       : 14px;
+	margin          : 12px 0px 12px 0px;
+	padding					: 12px 0px 12px 0px;
+	background-color:	#f0f2f5;
 `
 
-const CommenterInfo = styled.div`
-	display					: flex;
-`
-
-const Line = styled.hr`
-  margin             : 16px 0px;
-  border-top         : 1px solid #46508c;
-  border-bottom      : 1px solid #fff;
-`
-
-const Comment = ({id,post}) => {
+const CommentList = ({id,post}) => {
 
   const [values, setValues] = React.useState({ 
     "id"        	: "", 
@@ -41,10 +33,7 @@ const Comment = ({id,post}) => {
   });
 
 	React.useEffect(()=>{
-		if(post.commentList){
-			console.log("post",post.commentList);
-		}
-
+		console.log(post);
   }, [post]);
 
 	const handleChange = (e) => {
@@ -115,16 +104,11 @@ const Comment = ({id,post}) => {
 			{post.commentList ?		
 				<CommentsWrapper>
 					{post.commentList.map((comment,idx)=>(
-						<div>
-							<CommenterInfo>
-								{comment.id}
-							</CommenterInfo>
-							<Line/>
-						</div>
+						<Comment key={idx} comment={comment}/>
 					))}
 				</CommentsWrapper> : <></>}
 				
 		</div>
   )
 }
-export default Comment;
+export default CommentList;

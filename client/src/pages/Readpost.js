@@ -2,9 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styled from "styled-components"
-import Container from '@material-ui/core/Container';
+import {Container,Typography} from '@material-ui/core';
 import dayjs from 'dayjs';
-import Comment from '../containers/Comment';
+import CommentList from '../containers/CommentList';
 const PostWrapper = styled.div`
   border          : 1px solid #46508c;
   padding         : 15px;
@@ -17,8 +17,9 @@ const Line = styled.hr`
   border					: 1px solid #46508c;
 `
 
-const Date = styled.caption`
+const Date = styled.div`
 	display					:	inline-block;
+	font-size       : 12px;
 `
 
 const EditButton = styled.button`
@@ -26,7 +27,7 @@ const EditButton = styled.button`
 	background			: none;
 	display					:	inline-block;
 	cursor					:	pointer;
-	display					:	inline-block;
+	font-size       : 12px;
 `
 
 const Wrapper = styled.div`
@@ -37,8 +38,6 @@ const Wrapper = styled.div`
 const ContentWrapper = styled.div`
 	min-height			: 250px;
 `
-
-
 
 const ReadPost = () => {
 
@@ -77,7 +76,7 @@ const ReadPost = () => {
 				<Line/>
 				<ContentWrapper>{post.content}</ContentWrapper>
 				<Line/>
-				<Comment id={id} post={post}/>
+				<CommentList id={id} post={post}/>
 			</PostWrapper>
 		</Container>
   )

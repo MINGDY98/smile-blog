@@ -98,7 +98,6 @@ app.get('/read/:id', async (req, res, next) => {
     ])
 
     post[0]["commentList"]=resultComment[0];
-    console.log(post);
     res.json({ code: 200, result: "success", data : post });
   }
   catch(e) {
@@ -128,7 +127,6 @@ app.post('/update', async (req, res, next) => {
 
 app.post('/createComment', async (req, res, next) => {
    
-  console.log("도착",req.body);
   let {postId,id,password,comment}=req.body;
   
   try {
