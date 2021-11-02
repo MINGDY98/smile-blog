@@ -38,6 +38,8 @@ const ContentWrapper = styled.div`
 	min-height			: 250px;
 `
 
+
+
 const ReadPost = () => {
 
 	const { id } = useParams();
@@ -75,7 +77,7 @@ const ReadPost = () => {
 				<Line/>
 				<ContentWrapper>{post.content}</ContentWrapper>
 				<Line/>
-				<Comment id={id}/>
+				<Comment id={id} post={post}/>
 			</PostWrapper>
 		</Container>
   )

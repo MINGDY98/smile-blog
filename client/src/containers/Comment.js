@@ -7,6 +7,7 @@ const InfoWrapper = styled.div`
 	display					: flex;
 	flex-direction  : row;
 `
+
 const CommentInput = styled(InputBase)`
 	border          : 1.8px solid #46508c;
 	font-size       : 14px;
@@ -14,13 +15,37 @@ const CommentInput = styled(InputBase)`
 	color           : #676A59;
 `
 
-const Comment = ({id}) => {
+const CommentsWrapper = styled.div`
+	font-size       	: 14px;
+	margin          	: 10px 0px 10px 0px;
+	background-color 	:	#f0f2f5;
+	height 						: 100px;
+`
+
+const CommenterInfo = styled.div`
+	display					: flex;
+`
+
+const Line = styled.hr`
+  margin             : 16px 0px;
+  border-top         : 1px solid #46508c;
+  border-bottom      : 1px solid #fff;
+`
+
+const Comment = ({id,post}) => {
 
   const [values, setValues] = React.useState({ 
     "id"        	: "", 
     "password"  	: "", 
     "comment"     : "" 
   });
+
+	React.useEffect(()=>{
+		if(post.commentList){
+			console.log("post",post.commentList);
+		}
+
+  }, [post]);
 
 	const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,7 +79,7 @@ const Comment = ({id}) => {
 			.catch(error => {
 				console.log('error : ',error.response) 
 			});
-
+			window.location.reload();
 		}
   } 
   return (
@@ -87,6 +112,18 @@ const Comment = ({id}) => {
 			<button onClick={handleSubmit}>
 				등록
 			</button>
+			{post.commentList ?		
+				<CommentsWrapper>
+					{post.commentList.map((comment,idx)=>(
+						<div>
+							<CommenterInfo>
+								{comment.id}
+							</CommenterInfo>
+							<Line/>
+						</div>
+					))}
+				</CommentsWrapper> : <></>}
+				
 		</div>
   )
 }

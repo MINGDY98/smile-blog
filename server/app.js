@@ -86,7 +86,20 @@ app.get('/read/:id', async (req, res, next) => {
     const result = await pool.query(sql, [
       id
     ]);
-    res.json({ code: 200, result: "success", data : result[0] });
+
+    let post = result[0];//게시물.
+    const sqlComment=`
+      SELECT * 
+      FROM smile_log.comment 
+      WHERE postId = ?
+    `
+    const resultComment = await pool.query(sqlComment, [
+      id
+    ])
+
+    post[0]["commentList"]=resultComment[0];
+    console.log(post);
+    res.json({ code: 200, result: "success", data : post });
   }
   catch(e) {
     res.json({ code: 500, result: "error", message: e.message });
