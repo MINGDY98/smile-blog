@@ -8,6 +8,7 @@ const PreviewWrapper = styled.div`
 	border          : 1px solid #46508c;
 	border-radius   : 5px;
 	padding         : 15px;
+	font-size				: 12px;
 	overflow				: hidden;
 	text-overflow		: ellipsis;
 	white-space			: nowrap;

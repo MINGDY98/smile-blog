@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import styled from "styled-components";
-import { TextField } from '@material-ui/core';
+import { InputBase } from '@material-ui/core';
 
-const Field = styled(TextField)`
+const Field = styled(InputBase)`
 	font-size       : 10px;
 `
 
@@ -43,13 +43,13 @@ const DeleteComment = ({comment}) => {
     <div>
      <Field
 			name="password" 
-		  placeholder="댓글 작성시 비밀번호를 입력해주세요."
+		  placeholder="비밀번호를 입력해주세요."
 			value={commentDelete.password}
 			onChange={handleDeleteChange}
 			size="small"
 		  />
       <button onClick={handleSubmit}>
-        삭제
+        입력
       </button>
     </div>
 

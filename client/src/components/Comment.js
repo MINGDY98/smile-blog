@@ -46,7 +46,7 @@ const Comment = ({ comment }) => {
 					<Date>{dayjs(comment.date).format("YYYY년 MM월 DD일 HH:mm")}</Date>
 				</div>
 				<EditButton onClick={() => setOpenDelete(!openDelete)}>
-					삭제
+					{openDelete ? <div>취소</div> : <div>삭제</div>}
 				</EditButton>
 				<Collapse in={openDelete} timeout="auto" unmountOnExit>
 					<DeleteComment comment={comment}/>
