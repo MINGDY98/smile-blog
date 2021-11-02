@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styled from "styled-components"
-import {Container,Typography} from '@material-ui/core';
+import {Container} from '@material-ui/core';
+import {Button, Dialog,DialogActions,DialogTitle,DialogContentText,DialogContent}from '@mui/material';
 import dayjs from 'dayjs';
 import CommentList from '../containers/CommentList';
 const PostWrapper = styled.div`
@@ -42,6 +43,7 @@ const ContentWrapper = styled.div`
 const ReadPost = () => {
 
 	const { id } = useParams();
+	const [openAlert, setOpenAlert] = React.useState(false);
 	const [post, setPost] = React.useState([]);
 	const callPostApi = async()=>{
     const response = await axios.get('http://localhost:4000/read/'+ id);
@@ -56,6 +58,26 @@ const ReadPost = () => {
     .catch(err=>console.log(err));
   }, []);
 
+	const handleOpenAlert = () => {
+    setOpenAlert(true);
+  };
+
+	const handleCloseAlert = () => {
+    setOpenAlert(false);
+  };
+
+	const handleDelete = (e) => {
+    e.preventDefault();
+    axios.delete('http://localhost:4000/delete/post/'+id) 
+    .then(function ( response ) { 
+      console.log( response ); 
+			window.location.href="/";
+    }) 
+    .catch(error => { 
+      console.log( 'error : ',error.response ) 
+    });
+  }
+
   return (
 		<Container maxWidth="sm">
 			<PostWrapper>
@@ -68,7 +90,7 @@ const ReadPost = () => {
 						>
 							수정
 						</EditButton>
-						<EditButton>
+						<EditButton onClick={handleOpenAlert}>
 							삭제
 						</EditButton>
 					</div>
@@ -77,6 +99,25 @@ const ReadPost = () => {
 				<ContentWrapper>{post.content}</ContentWrapper>
 				<Line/>
 				<CommentList id={id} post={post}/>
+				<Dialog
+					open={openAlert}
+					onClose={handleCloseAlert}
+					aria-labelledby="alert-dialog-title"
+					aria-describedby="alert-dialog-description"
+				>
+					<DialogTitle id="alert-dialog-title">
+						{"포스트 삭제"}
+					</DialogTitle>
+					<DialogContent>
+						<DialogContentText id="alert-dialog-description">
+							정말 글을 삭제하시겠습니까?
+						</DialogContentText>
+					</DialogContent>
+					<DialogActions>
+						<Button onClick={handleCloseAlert}>아니오</Button>
+						<Button onClick={handleDelete} autoFocus>네</Button>
+					</DialogActions>
+				</Dialog>
 			</PostWrapper>
 		</Container>
   )
