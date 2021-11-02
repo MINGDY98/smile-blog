@@ -123,6 +123,29 @@ app.post('/update', async (req, res, next) => {
   }
 });
 
+app.delete('/delete/post/:id', async (req, res, next) => {
+
+  let {id}=req.params;
+
+  try {
+    //댓글도 삭제
+    const rpySql = `DELETE FROM smile_log.comment
+                    WHERE postId=?;`
+    const rpyPost = await pool.query(rpySql, [id]);
+
+    //시 삭제
+    const sql=`DELETE FROM smile_log.post
+              WHERE idpost=?;`
+    const post = await pool.query(sql, [id]);
+
+    res.json({ code: 200, result: "success", data : post });
+  }
+  catch(e) {
+    console.log(e)
+    res.json({ code: 500, result: "error", message: e.message });
+  }
+});
+
 //댓글
 
 app.post('/createComment', async (req, res, next) => {

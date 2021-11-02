@@ -21,9 +21,6 @@ const Wrapper = styled.div`
 
 const Post = ({ data }) => {
 
-	React.useEffect(()=>{
-		console.log("data",data);
-  }, []);
   return (
 		<Wrapper >
 			<PreviewWrapper
