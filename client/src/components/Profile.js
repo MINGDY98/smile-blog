@@ -9,7 +9,6 @@ const Profile = () => {
   const [ file, setFile ] = useState();
    const callLatestApi = async()=>{
     const response = await axios.get('http://localhost:4000/profile');
-    console.log(response.data.data);
     return response.data.data;
   }
   const handlePhoto = (e) => {

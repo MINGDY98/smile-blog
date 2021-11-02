@@ -93,7 +93,6 @@ const WritePost= () => {
 					"content"   : values.content, 
 				}) 
 				.then( function (response) {
-					console.log(response,"수정이 되었습니다.");
 					window.location.href="/read/"+id;
 				}) 
 				.catch( error => {

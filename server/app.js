@@ -147,6 +147,21 @@ app.post('/createComment', async (req, res, next) => {
   }
 });
 
+app.delete('/delete/comment/:id', async (req, res, next) => {
+
+  let {id}=req.params;
+  try {
+    const sql = `DELETE FROM smile_log.comment
+                    WHERE commentId=?;`
+
+    const result = await pool.query(sql, [id]);
+    res.json({ code: 200, result: "success", data : result });
+  }
+  catch(e) {
+    console.log(e)
+    res.json({ code: 500, result: "error", message: e.message });
+  }
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

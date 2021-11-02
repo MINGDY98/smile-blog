@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from "styled-components"
 import dayjs from 'dayjs';
+import { Collapse} from '@mui/material';
+import DeleteComment from './DeleteComment';
 
 const EditButton = styled.button`
 	border					: none;
@@ -35,14 +37,20 @@ const Date = styled.div`
 
 const Comment = ({ comment }) => {
 
+	const [openDelete, setOpenDelete] = React.useState(false);
   return (
 		<div>
 			<CommenterInfo>
-			<div>
-				{comment.id}
-				<Date>{dayjs(comment.date).format("YYYY년 MM월 DD일 HH:mm")}</Date>
-			</div>
-			<EditButton>삭제</EditButton>
+				<div>
+					{comment.id}
+					<Date>{dayjs(comment.date).format("YYYY년 MM월 DD일 HH:mm")}</Date>
+				</div>
+				<EditButton onClick={() => setOpenDelete(!openDelete)}>
+					삭제
+				</EditButton>
+				<Collapse in={openDelete} timeout="auto" unmountOnExit>
+					<DeleteComment comment={comment}/>
+				</Collapse>
 			</CommenterInfo>
 			<CommentWrapper>{comment.comment}</CommentWrapper>
 			<Line/>

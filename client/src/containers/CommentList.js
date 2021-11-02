@@ -20,7 +20,6 @@ const CommentInput = styled(InputBase)`
 const CommentsWrapper = styled.div`
 	font-size       : 14px;
 	margin          : 12px 0px 12px 0px;
-	padding					: 12px 0px 12px 0px;
 	background-color:	#f0f2f5;
 `
 
@@ -31,10 +30,6 @@ const CommentList = ({id,post}) => {
     "password"  	: "", 
     "comment"     : "" 
   });
-
-	React.useEffect(()=>{
-		console.log(post);
-  }, [post]);
 
 	const handleChange = (e) => {
     const { name, value } = e.target;
