@@ -12,19 +12,27 @@ const PreviewWrapper = styled.div`
 	overflow				: hidden;
 	text-overflow		: ellipsis;
 	white-space			: nowrap;
+
+`
+
+const Wrapper = styled.div`
+	flex-grow				: 1;
 `
 
 const Post = ({ data }) => {
 
+	React.useEffect(()=>{
+		console.log("data",data);
+  }, []);
   return (
-		<div>
+		<Wrapper >
 			<PreviewWrapper
 				onClick={() => window.location.href="/read/"+data.idpost}
 			>
 				{data.title}
 			</PreviewWrapper>
 			<Padding/>
-		</div>
+		</Wrapper>
   )
 }
 

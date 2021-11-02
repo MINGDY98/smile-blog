@@ -3,6 +3,8 @@ import Profile from '../components/Profile';
 import Container from '@material-ui/core/Container';
 import styled from "styled-components";
 import PostList from '../containers/PostList';
+import { Padding } from '../styles/common';
+
 const Main = () => {
 
 	const ProfileWrapper = styled.div`
@@ -14,6 +16,7 @@ const Main = () => {
 			<ProfileWrapper>
 				<Profile/>
 			</ProfileWrapper>
+			<Padding/>
 			<PostList/>
 		</Container>
   )
