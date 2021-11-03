@@ -61,7 +61,7 @@ app.put('/upload', async (req, res, next) => {
 
 app.get('/profile', async (req, res, next) => {
   try {
-    const result = await pool.query('SELECT userImg FROM smile_log.user Where userId=1;')
+    const result = await pool.query('SELECT * FROM smile_log.user Where userId=1;')
     res.json({ code: 200, result: "success", data : result[0][0] });
   }
   catch(e) {
