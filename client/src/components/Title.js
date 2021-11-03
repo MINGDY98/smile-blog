@@ -2,11 +2,11 @@ import React from 'react';
 import styled from "styled-components";
 
 const TitleText = styled.p`
-	font-size				: 20px;
-	font-weight			: 900;
-	cursor					: pointer;
-	color						: #fc6020;
-  align-self  		: center;
+  font-size   : 20px;
+  font-weight : 900;
+  cursor      : pointer;
+  color       : #fc6020;
+  align-self  : center;
 `
 
 const Title = () => {

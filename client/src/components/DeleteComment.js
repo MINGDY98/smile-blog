@@ -3,12 +3,12 @@ import axios from 'axios';
 import styled from "styled-components";
 
 const Field = styled.input`
-	font-size       : 10px;
+  font-size       : 10px;
   font-weight     : 600;
   border          : none;
   background      : none;
-  &:focus {
-    outline: none;
+  &:focus{
+    outline : none;
   }
 `
 
@@ -66,13 +66,13 @@ const DeleteComment = ({comment}) => {
 
   return (  
     <Wrapper>
-     <Field
-			name="password" 
-		  placeholder="비밀번호를 입력해주세요."
-			value={commentDelete.password}
-			onChange={handleDeleteChange}
-			size="small"
-		  />
+      <Field
+        name="password" 
+        placeholder="비밀번호를 입력해주세요."
+        value={commentDelete.password}
+        onChange={handleDeleteChange}
+        size="small"
+      />
       <DeleteButton onClick={handleSubmit}>
         입력
       </DeleteButton>

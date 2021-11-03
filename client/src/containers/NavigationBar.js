@@ -6,15 +6,15 @@ import {
 import Title from '../components/Title';
 
 const NavigationWrapper = styled.div`
-	height					: 60px;
-  margin	  			: 0px auto;
+  height          : 60px;
+  margin          : 0px auto;
   border-bottom   : 1px solid #EEEEEE;
 `
 
 const ButtonWrapper = styled.div`
-	display					: flex;
-	align-items			: center;
-	width           : 100%;
+  display         : flex;
+  align-items     : center;
+  width           : 100%;
   height          : 100%;
   justify-content : space-between;
 `
@@ -26,7 +26,7 @@ const NavigationBar = () => {
       <ButtonWrapper>
         <Title/>
         <PrimaryButton
-          onClick={() => window.location.href="/write"}
+        onClick={() => window.location.href="/write"}
         >
           새 글 작성
         </PrimaryButton>

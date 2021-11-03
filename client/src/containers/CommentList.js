@@ -50,87 +50,87 @@ const SubmitWrapper = styled.div`
 const CommentList = ({id,post}) => {
 
   const [values, setValues] = React.useState({ 
-    "id"        	: "", 
-    "password"  	: "", 
-    "comment"     : "" 
+    "id"        : "", 
+    "password"  : "", 
+    "comment"   : "" 
   });
 
-	const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setValues({ 
+      setValues({ 
       ...values, 
       [name] : value, 
     });
   }
 
-	const handleSubmit = (e) => {
-		if(values.id===""||values.password===""||values.comment===""){
-			if(values.comment===""){
-				alert("댓글을 입력해주세요!");
-			}
-			else{
-				alert('닉네임 혹은 비밀번호를 입력해주세요!');
-			}
-			e.preventDefault();
+  const handleSubmit = (e) => {
+    if(values.id===""||values.password===""||values.comment===""){
+      if(values.comment===""){
+        alert("댓글을 입력해주세요!");
+      }
+      else{
+        alert('닉네임 혹은 비밀번호를 입력해주세요!');
+      }
+      e.preventDefault();
 
-		}else{
-			alert('댓글이 등록되었습니다!');
-			axios.post('http://localhost:4000/createComment',{
-				"postId"		:	id,
-				"id"				:	values.id, 
-				"password"	:	values.password, 
-				"comment"		: values.comment
-			}) 
-			.then(function (response) {
-				console.log(response); 
-			}) 
-			.catch(error => {
-				console.log('error : ',error.response) 
-			});
-			window.location.reload();
-		}
-  }
-	
+      }else{
+        alert('댓글이 등록되었습니다!');
+        axios.post('http://localhost:4000/createComment',{
+        "postId"		:	id,
+        "id"				:	values.id, 
+        "password"	:	values.password, 
+        "comment"		: values.comment
+        }) 
+        .then(function (response) {
+          console.log(response); 
+        }) 
+        .catch(error => {
+          console.log('error : ',error.response) 
+        });
+        window.location.reload();
+      }
+    }
+
   return (
-		<Wrapper>
-			<InfoWrapper>
-				<CommentForm
-					fullWidth
-					name="id" 
-					placeholder="닉네임"
-					value={values.id}
-					onChange={handleChange}
-				/>
-				<CommentForm
-					fullWidth
-					name="password" 
-					type="password"
-					placeholder="비밀번호"
-					value={values.password}
-					onChange={handleChange}
-				/>
-			</InfoWrapper>
-			<CommentInput
-				fullWidth
-				name="comment" 
-				placeholder="의견을 작성해주세요"
-				value={values.comment}
-				onChange={handleChange}
-				multiline
-				rows={5}
-			/>
-			<SubmitWrapper>
-				<PrimaryButton onClick={handleSubmit}>
-					등록
-				</PrimaryButton>
-			</SubmitWrapper>
-			{post.commentList ?		
-				<CommentsWrapper>
-					{post.commentList.map((comment,idx)=>(
-						<Comment key={idx} comment={comment}/>
-					))}
-				</CommentsWrapper> : <></>}
-		</Wrapper>
+    <Wrapper>
+      <InfoWrapper>
+        <CommentForm
+        fullWidth
+        name="id" 
+        placeholder="닉네임"
+        value={values.id}
+        onChange={handleChange}
+        />
+        <CommentForm
+        fullWidth
+        name="password" 
+        type="password"
+        placeholder="비밀번호"
+        value={values.password}
+        onChange={handleChange}
+        />
+      </InfoWrapper>
+      <CommentInput
+        fullWidth
+        name="comment" 
+        placeholder="의견을 작성해주세요"
+        value={values.comment}
+        onChange={handleChange}
+        multiline
+        rows={5}
+      />
+      <SubmitWrapper>
+        <PrimaryButton onClick={handleSubmit}>
+          등록
+        </PrimaryButton>
+      </SubmitWrapper>
+      {post.commentList ?		
+      <CommentsWrapper>
+      {post.commentList.map((comment,idx)=>(
+        <Comment key={idx} comment={comment}/>
+      ))}
+      </CommentsWrapper> : <></>}
+    </Wrapper>
   )
 }
 export default CommentList;

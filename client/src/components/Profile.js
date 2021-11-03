@@ -13,8 +13,8 @@ const ImgWrapper = styled.div`
   height          : 72px;
   overflow        : hidden;
   border-radius   : 50%;
-  display				  : flex;
-	justify-content	: center;
+  display         : flex;
+  justify-content : center;
   margin-right    : 10px;
 `
 
@@ -29,7 +29,7 @@ const IntroduceWrapper = styled.div`
 `
 
 const ProfileWrapper = styled.div`
-  display				  : flex;
+  display         : flex;
   align-items     : center;
   justify-content : left;
   width           : 100%;
@@ -49,7 +49,7 @@ const Profile = () => {
   const [Image, setImage] = React.useState("profile.png")
   const [introduce, setIntroduce]=React.useState("");
   const callLatestApi = async()=>{
-    const response = await axios.get('http://localhost:4000/profile');
+  const response = await axios.get('http://localhost:4000/profile');
     return response.data.data;
   }
 
