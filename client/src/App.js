@@ -3,20 +3,21 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from "styled-components";
+import { Container } from '@mui/material';
 import Main from './pages/Main';
-import NavigationBar from './containers/NavigationBar';
-import Container from '@material-ui/core/Container';
 import WritePost from './pages/WritePost';
 import ReadPost from './pages/Readpost';
+import NavigationBar from './containers/NavigationBar';
 
 export const Padding = styled.div`
 	padding-top : 30px;
 `
 
 function App() {
+  
   return (
     <div >
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <NavigationBar/>
       </Container>
       <Padding/>

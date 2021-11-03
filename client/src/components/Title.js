@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import { 
-  Typography 
-} from '@mui/material';
 
-const TitleText = styled(Typography)`
+const TitleText = styled.p`
 	font-size				: 20px;
-	font-weight			: 700;
+	font-weight			: 900;
 	cursor					: pointer;
 	color						: #fc6020;
   align-self  		: center;

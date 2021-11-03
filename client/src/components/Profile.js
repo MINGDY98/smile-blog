@@ -2,24 +2,46 @@ import React from 'react';
 import axios from 'axios';
 import styled from "styled-components"
 
-const CircleProfileImg = styled.img`
+const CircleImg = styled.img`
   width           : 100%;
   height          : auto;
 `
 
-const ProfileWrapper = styled.div`
+const ImgWrapper = styled.div`
   position        : relative;
-  width           : 150px;
-  height          : 150px;
+  width           : 72px;
+  height          : 72px;
   overflow        : hidden;
   border-radius   : 50%;
   display				  : flex;
 	justify-content	: center;
+  margin-right    : 10px;
 `
 
-const IntoduceText = styled.div`
-  font-size       :6px;
-  text-align      : center;
+const IntroduceText = styled.div`
+  font-size       : 12px;
+  font-weight     : 500;
+  color           : #888888;
+`
+
+const IntroduceWrapper = styled.div`
+  text-align      : left;
+`
+
+const ProfileWrapper = styled.div`
+  display				  : flex;
+  align-items     : center;
+  justify-content : left;
+  width           : 100%;
+  padding         : 40px 0px;
+  border-bottom   : 1px solid #EEEEEE;
+`
+
+const IntroduceName = styled.p`
+  color           : #333333;
+  margin          : 0px;
+  font-size       : 20px;
+  font-weight     : 600;
 `
 
 const Profile = () => {
@@ -41,15 +63,22 @@ const Profile = () => {
   }, []);
 
   return (  
-    <div>
-      <ProfileWrapper>
-        <CircleProfileImg
+    <ProfileWrapper>
+      <ImgWrapper>
+        <CircleImg
           src={Image} 
           alt="Avatar"
         />
-      </ProfileWrapper>
-      <IntoduceText>{introduce}</IntoduceText>
-    </div>
+      </ImgWrapper>
+      <IntroduceWrapper>
+        <IntroduceName>
+          김민지
+        </IntroduceName>
+        <IntroduceText>
+          {introduce}
+        </IntroduceText>
+      </IntroduceWrapper>
+    </ProfileWrapper>
   )
 }
 export default Profile;

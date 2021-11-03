@@ -15,6 +15,10 @@ import {
 import Post from '../components/Post';
 import Pagination from '../components/Pagination';
 
+const Wrapper = styled.div`
+  padding-bottom  : 100px;
+`
+
 const PostListWrapper = styled.div`
   margin          : 24px 0px 24px 0px;
 `
@@ -24,7 +28,17 @@ const PostWrapper = styled.div`
 `
 
 const DisabledButton = styled(PrimaryButton)`
-  background-color: #fff;
+  background-color: #E1E1E1;
+  &:hover {
+    background-color: ${props => props.disabled ? "#E1E1E1" : "#CCCCCC"};
+    cursor          : ${props => props.disabled ? "" : "pointer"};
+  }
+`
+
+const ButtonGroup = styled.div`
+  display         : flex;
+  justify-content : flex-end;
+  gap             : 10px;
 `
 
 const PostList = () => {
@@ -94,15 +108,15 @@ const PostList = () => {
   };
 
   return (
-    <div>
-      <div>
+    <Wrapper>
+      <ButtonGroup>
         <PrimaryButton onClick={() => setOpenDelete(!openDelete)}>
           {openDelete? <div>선택 취소</div> : <div>목록 선택</div>}
         </PrimaryButton>
         {openDelete&&checkedList.length>0 ? 
         <PrimaryButton onClick={handleOpenAlert}>삭제</PrimaryButton>:
         <DisabledButton disabled>삭제</DisabledButton>}
-      </div>
+      </ButtonGroup>
       {posts ?  
       <PostListWrapper>
         {currentPosts(posts).map((post,index)=>(
@@ -123,7 +137,7 @@ const PostList = () => {
           postsPerPage={postsPerPage}
           totalPosts={posts.length} 
           paginate={setCurrentPage}
-        ></Pagination>
+        />
       </PostListWrapper> :
       <div>새 글을 작성해주세요.</div>}
       <Dialog
@@ -145,8 +159,7 @@ const PostList = () => {
 					<Button onClick={handleDelete} autoFocus>네</Button>
 				</DialogActions>
 			</Dialog>
-    </div>
-    
+    </Wrapper>
   )
 }
 export default PostList;

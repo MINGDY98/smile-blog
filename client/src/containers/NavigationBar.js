@@ -6,26 +6,17 @@ import {
 import Title from '../components/Title';
 
 const NavigationWrapper = styled.div`
-	height					: 40px;
-  padding					: 0px 20px;
+	height					: 60px;
   margin	  			: 0px auto;
+  border-bottom   : 1px solid #EEEEEE;
 `
 
 const ButtonWrapper = styled.div`
 	display					: flex;
 	align-items			: center;
-	height					: 100%;
+	width           : 100%;
+  height          : 100%;
   justify-content : space-between;
-`
-
-const CreateButton = styled(PrimaryButton)`
-  &:hover {
-    background-color : #fc6020;
-  }
-`
-
-const CreateText= styled.div`
-  font-size       : 14px;
 `
 
 const NavigationBar = () => {
@@ -34,11 +25,11 @@ const NavigationBar = () => {
     <NavigationWrapper>
       <ButtonWrapper>
         <Title/>
-        <CreateButton
+        <PrimaryButton
           onClick={() => window.location.href="/write"}
         >
-          <CreateText>새 글 작성</CreateText>
-        </CreateButton>
+          새 글 작성
+        </PrimaryButton>
       </ButtonWrapper>
     </NavigationWrapper>
   )

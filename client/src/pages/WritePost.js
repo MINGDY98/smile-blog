@@ -19,14 +19,6 @@ const PostInput = styled(InputBase)`
 	border-radius   : 5px;
 `
 
-const ContentInput = styled(InputBase)`
-	border          : 1.8px solid #46508c;
-	font-size       : 14px;
-	margin          : 10px 0px 10px 0px;
-	color           : #676A59;
-	border-radius   : 5px;
-`
-
 const SubmitButton = styled(PrimaryButton)`
 	&:hover {
 		background: #46508c;
@@ -38,8 +30,8 @@ const WritePost= () => {
 	const { id } = useParams();//수정하기를 통해 들어왔을 경우.
 
   const [values, setValues] = React.useState({ 
-    "title"        : "", 
-		"content"      : "", 
+    "title"      : "", 
+		"content"    : "", 
   });
 
 	const callPostApi = async()=>{
@@ -55,12 +47,11 @@ const WritePost= () => {
 			callPostApi()
 			.then(res=>{
 				setValues({ 
-					"title"        : res.data[0].title, 
-					"content"      : res.data[0].content,
+					"title"     : res.data[0].title, 
+					"content"   : res.data[0].content,
 				});
 			})
 			.catch(err=>console.log(err));
-
 		}
   }, []);
 
@@ -109,7 +100,6 @@ const WritePost= () => {
   }
 
   return (
-
 		<Container maxWidth="sm">
 			<PostInput 
 				fullWidth
@@ -118,8 +108,7 @@ const WritePost= () => {
 				value={values.title}
 				onChange={handleChange}
       />
-
-			<ContentInput
+			<PostInput
 				fullWidth
 				name="content" 
 				placeholder="당신의 이야기를 적어주세요."
@@ -128,7 +117,6 @@ const WritePost= () => {
 				value={values.content}
 				onChange={handleChange}
 			/>
-
 			<SubmitButton onClick={handleSubmit} >
 				{id==null ? <Typography>작성</Typography>:<Typography>수정</Typography>}
 			</SubmitButton>

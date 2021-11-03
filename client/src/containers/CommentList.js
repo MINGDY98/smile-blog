@@ -1,28 +1,50 @@
 import React from 'react';
 import axios from 'axios';
 import styled from "styled-components";
-import { 
-	InputBase 
-} from '@mui/material';
 import Comment from '../components/Comment';
+import { PrimaryButton } from '../styles/common';
 
 const InfoWrapper = styled.div`
 	display					: flex;
 	flex-direction  : row;
+	gap							: 10px;
 `
 
-const CommentInput = styled(InputBase)`
-	border          : 1.8px solid #46508c;
+const Wrapper = styled.div`
+	padding-bottom	: 100px;
+`
+
+const CommentInput = styled.textarea`
+	border          : 1px solid #46508c;
 	font-size       : 14px;
-	margin          : 12px 0px 12px 0px;
-	padding					: 12px 6px 12px 6px;
+	width						: calc(100% - 20px);
+	margin          : 10px 0px 12px 0px;
+	padding 				: 10px;
 	color           : #676A59;
+	font-size				: 12px;
+	font-weight			: 600;
+	border-radius		: 5px;
 `
 
 const CommentsWrapper = styled.div`
 	font-size       : 14px;
 	margin          : 12px 0px 12px 0px;
 	background-color:	#f0f2f5;
+`
+
+const CommentForm = styled.input`
+	border					: none;
+	padding					: 8px 15px;
+	width						: 100%;
+	border-radius		: 5px;
+	background-color: #F1F1F1;
+	color						: #565656;
+	font-weight			: 600;
+`
+
+const SubmitWrapper = styled.div`
+	display					: flex;
+	justify-content	: flex-end;
 `
 
 const CommentList = ({id,post}) => {
@@ -67,20 +89,22 @@ const CommentList = ({id,post}) => {
 			});
 			window.location.reload();
 		}
-  } 
+  }
+	
   return (
-		<div>
+		<Wrapper>
 			<InfoWrapper>
-				<InputBase
+				<CommentForm
 					fullWidth
 					name="id" 
 					placeholder="닉네임"
 					value={values.id}
 					onChange={handleChange}
 				/>
-				<InputBase
+				<CommentForm
 					fullWidth
 					name="password" 
+					type="password"
 					placeholder="비밀번호"
 					value={values.password}
 					onChange={handleChange}
@@ -95,17 +119,18 @@ const CommentList = ({id,post}) => {
 				multiline
 				rows={5}
 			/>
-			<button onClick={handleSubmit}>
-				등록
-			</button>
+			<SubmitWrapper>
+				<PrimaryButton onClick={handleSubmit}>
+					등록
+				</PrimaryButton>
+			</SubmitWrapper>
 			{post.commentList ?		
 				<CommentsWrapper>
 					{post.commentList.map((comment,idx)=>(
 						<Comment key={idx} comment={comment}/>
 					))}
 				</CommentsWrapper> : <></>}
-				
-		</div>
+		</Wrapper>
   )
 }
 export default CommentList;

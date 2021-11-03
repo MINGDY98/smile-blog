@@ -1,12 +1,34 @@
 import React from 'react';
 import axios from 'axios';
 import styled from "styled-components";
-import { 
-  InputBase 
-} from '@mui/material';
 
-const Field = styled(InputBase)`
+const Field = styled.input`
 	font-size       : 10px;
+  font-weight     : 600;
+  border          : none;
+  background      : none;
+  &:focus {
+    outline: none;
+  }
+`
+
+const Wrapper = styled.div`
+  padding         : 3px 10px;
+  background-color: #FFFFFF;
+  margin-right    : 10px;
+  display         : flex;
+  align-items     : center;
+  border-radius   : 3px;
+`
+
+const DeleteButton = styled.button`
+  border          : none;
+  background      : none;
+  color           : #333333;
+  font-size       : 10px;
+  font-weight     : 600;
+  cursor          : pointer;
+  padding         : 0;
 `
 
 const DeleteComment = ({comment}) => {
@@ -41,8 +63,9 @@ const DeleteComment = ({comment}) => {
     }
     window.location.reload();
   }
+
   return (  
-    <div>
+    <Wrapper>
      <Field
 			name="password" 
 		  placeholder="비밀번호를 입력해주세요."
@@ -50,11 +73,10 @@ const DeleteComment = ({comment}) => {
 			onChange={handleDeleteChange}
 			size="small"
 		  />
-      <button onClick={handleSubmit}>
+      <DeleteButton onClick={handleSubmit}>
         입력
-      </button>
-    </div>
-
+      </DeleteButton>
+    </Wrapper>
   )
 }
 export default DeleteComment;

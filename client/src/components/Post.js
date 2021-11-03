@@ -5,17 +5,34 @@ import {
 } from '../styles/common';
 
 const PreviewWrapper = styled.div`
-	border          : 1px solid #46508c;
-	border-radius   : 5px;
-	padding         : 15px;
-	font-size				: 12px;
-	overflow				: hidden;
-	text-overflow		: ellipsis;
-	white-space			: nowrap;
+	border-bottom : 1px solid #46508c;
+	padding       : 15px 5px;
+	font-size			: 12px;
+	overflow			: hidden;
+	cursor				: pointer;
+	color					: #565656;
+	&: hover {
+		background-color: rgba(0, 0, 0, 0.05);
+		border-bottom   : 1px solid #fc6020;
+		color						: #333333;
+	}
+`
+
+const PreviewTitle = styled.p`
+	font-size			: 32px;
+	font-weight		: 700;
+	margin				: 0px;
+	margin-bottom	: 10px;
+`
+
+const PreviewContent = styled.p`
+	font-size			: 13px;
+	font-weight		: 500;
+	color					: #888888;
 `
 
 const Wrapper = styled.div`
-	flex-grow				: 1;
+	flex-grow			: 1;
 `
 
 const Post = ({ data }) => {
@@ -25,7 +42,8 @@ const Post = ({ data }) => {
 			<PreviewWrapper
 				onClick={() => window.location.href="/read/"+data.idpost}
 			>
-				{data.title}
+				<PreviewTitle>{data.title}</PreviewTitle>
+				<PreviewContent>{data.content.slice(0, 50)}</PreviewContent>
 			</PreviewWrapper>
 			<Padding/>
 		</Wrapper>

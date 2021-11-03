@@ -2,14 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PageUl = styled.ul`
-  float						:	left;
   list-style			: none;
   text-align			:	center;
-  border-radius		:	3px;
   padding					:	1px;
 	color						:	#fc6020;
-  border-top			:	3px solid #fc6020;
-  border-bottom		:	3px solid #fc6020;
+  margin          : 20px auto;
+  padding         : 5px 0px;
   background-color: white;
 `;
 
@@ -18,16 +16,20 @@ const PageLi = styled.li`
   font-size				:	17px;
   font-weight			:	600;
   padding					:	5px;
-  border-radius		:	5px;
   width						:	25px;
+  height          : 25px;
+  background-color: rgba(252, 96, 32, 0.25);
+  color           : rgba(252, 96, 32, 1);
+  border-radius   : 50%;
+  cursor          : pointer;
   &:hover{
     cursor						:	pointer;
     color							:	white;
-    background-color	:	#263A6C;
+    background-color	:	rgba(252, 96, 32, 1);
   }
   &:focus::after{
     color							:	white;
-    background-color	:	#263A6C;
+    background-color	:	rgba(252, 96, 32, 1);
   }
 `;
 

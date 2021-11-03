@@ -17,7 +17,7 @@ const ProfileWrapper = styled.div`
 const Main = () => {
 
   return (
-		<Container maxWidth="sm">
+		<Container maxWidth="md">
 			<ProfileWrapper>
 				<Profile/>
 			</ProfileWrapper>
