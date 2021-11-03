@@ -1,10 +1,19 @@
 import React from 'react';
 import axios from 'axios';
 import styled from "styled-components"
-import { PrimaryButton} from '../styles/common';
+import {
+  PrimaryButton
+} from '../styles/common';
+import {
+  Button, 
+  Dialog,
+  DialogActions,
+  DialogTitle,
+  DialogContentText,
+  DialogContent
+}from '@mui/material';
 import Post from '../components/Post';
 import Pagination from '../components/Pagination';
-import {Button, Dialog,DialogActions,DialogTitle,DialogContentText,DialogContent}from '@mui/material';
 
 const PostListWrapper = styled.div`
   margin          : 24px 0px 24px 0px;
@@ -16,8 +25,8 @@ const PostWrapper = styled.div`
 
 const DisabledButton = styled(PrimaryButton)`
   background-color: #fff;
-
 `
+
 const PostList = () => {
 
   const [posts, setPosts]=React.useState([]);

@@ -2,10 +2,18 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styled from "styled-components"
-import {Container} from '@material-ui/core';
-import {Button, Dialog,DialogActions,DialogTitle,DialogContentText,DialogContent}from '@mui/material';
+import {
+	Container,
+	Button, 
+	Dialog,
+	DialogActions,
+	DialogTitle,
+	DialogContentText,
+	DialogContent
+}from '@mui/material';
 import dayjs from 'dayjs';
 import CommentList from '../containers/CommentList';
+
 const PostWrapper = styled.div`
   border          : 1px solid #46508c;
   padding         : 15px;

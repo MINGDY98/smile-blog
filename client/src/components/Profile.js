@@ -1,9 +1,12 @@
 import React,{useState,useRef} from 'react';
-import {Avatar,Typography} from '@material-ui/core/';
 import axios from 'axios';
-
+import {
+  Avatar,
+  Typography
+} from '@mui/material';
 
 const Profile = () => {
+
   const [Image, setImage] = useState("profile.png")
   const fileInput = useRef(null);
   const [ file, setFile ] = useState();
@@ -11,6 +14,17 @@ const Profile = () => {
     const response = await axios.get('http://localhost:4000/profile');
     return response.data.data;
   }
+
+  React.useEffect(()=>{
+    callLatestApi()
+    .then(res=>{
+      if(res!=null){//db에 img가 없으면 기본 프로필 배치.
+        setImage(res.userImg);
+      }
+    })
+    .catch( err=>console.log(err) );
+  }, []);
+
   const handlePhoto = (e) => {
     if(e.target.files[0]){
       setFile(e.target.files[0]);
@@ -26,22 +40,11 @@ const Profile = () => {
         console.log('error : ',error.response) 
       });
 
-    }else{ //업로드 취소할 시
-      //setImage("profile.png")
+    }else{
       return
     }
   };
 
-   React.useEffect(()=>{
-    callLatestApi()
-    .then(res=>{
-      if(res!=null){//db에 img가 없으면 기본 프로필 배치.
-        setImage(res.userImg);
-      }
-    })
-    .catch( err=>console.log(err) );
-  }, []);
-   
   return (  
     <div>
       <Avatar

@@ -1,7 +1,9 @@
 import React from 'react';
-import { InputBase } from '@material-ui/core';
-import styled from "styled-components";
 import axios from 'axios';
+import styled from "styled-components";
+import { 
+	InputBase 
+} from '@mui/material';
 import Comment from '../components/Comment';
 
 const InfoWrapper = styled.div`

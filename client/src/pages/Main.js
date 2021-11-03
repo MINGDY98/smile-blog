@@ -1,16 +1,21 @@
 import React from 'react';
-import Profile from '../components/Profile';
-import Container from '@material-ui/core/Container';
 import styled from "styled-components";
+import {
+	Container
+} from '@mui/material';
+import {
+	Padding
+} from '../styles/common';
 import PostList from '../containers/PostList';
-import { Padding } from '../styles/common';
+import Profile from '../components/Profile';
+
+const ProfileWrapper = styled.div`
+	display					: flex;
+	justify-content	: center;
+`
 
 const Main = () => {
 
-	const ProfileWrapper = styled.div`
-		display					: flex;
-		justify-content	: center;
-	`
   return (
 		<Container maxWidth="sm">
 			<ProfileWrapper>

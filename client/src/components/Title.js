@@ -1,6 +1,8 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import styled from "styled-components";
+import { 
+  Typography 
+} from '@mui/material';
 
 const TitleText = styled(Typography)`
 	font-size				: 20px;
@@ -13,13 +15,11 @@ const TitleText = styled(Typography)`
 const Title = () => {
 
   return (  
-
     <TitleText
       onClick={()=>window.location.href="/"}
     >
       smile_log
     </TitleText>
-
   )
 }
 export default Title;

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
+import {
+  PrimaryButton
+} from '../styles/common';
 import Title from '../components/Title';
-import { Typography } from '@material-ui/core';
-import { PrimaryButton } from '../styles/common';
 
 const NavigationWrapper = styled.div`
 	height					: 40px;
@@ -23,7 +24,7 @@ const CreateButton = styled(PrimaryButton)`
   }
 `
 
-const CreateText= styled(Typography)`
+const CreateText= styled.div`
   font-size       : 14px;
 `
 

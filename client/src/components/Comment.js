@@ -38,6 +38,7 @@ const Date = styled.div`
 const Comment = ({ comment }) => {
 
 	const [openDelete, setOpenDelete] = React.useState(false);
+	
   return (
 		<div>
 			<CommenterInfo>

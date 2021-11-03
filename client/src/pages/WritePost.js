@@ -2,8 +2,14 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import styled from "styled-components";
 import axios from 'axios';
-import {Container,Typography,InputBase} from '@material-ui/core';
-import { PrimaryButton } from '../styles/common';
+import {
+	Container,
+	Typography,
+	InputBase
+} from '@mui/material';
+import { 
+	PrimaryButton 
+} from '../styles/common';
 
 const PostInput = styled(InputBase)`
 	border          : 1.8px solid #46508c;

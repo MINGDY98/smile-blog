@@ -12,7 +12,6 @@ const PreviewWrapper = styled.div`
 	overflow				: hidden;
 	text-overflow		: ellipsis;
 	white-space			: nowrap;
-
 `
 
 const Wrapper = styled.div`
