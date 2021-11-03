@@ -16,35 +16,35 @@ import Post from '../components/Post';
 import Pagination from '../components/Pagination';
 
 const Wrapper = styled.div`
-  padding-bottom  : 100px;
+  padding-bottom    : 100px;
 `
 
 const PostListWrapper = styled.div`
-  margin          : 24px 0px 24px 0px;
+  margin            : 24px 0px 24px 0px;
 `
 
 const PostWrapper = styled.div`
-  display					: flex;
+  display           : flex;
 `
 
 const DisabledButton = styled(PrimaryButton)`
-  background-color: #E1E1E1;
-  &:hover {
-    background-color: ${props => props.disabled ? "#E1E1E1" : "#CCCCCC"};
-    cursor          : ${props => props.disabled ? "" : "pointer"};
+  background-color  : #E1E1E1;
+  &:hover{
+    background-color: ${ props => props.disabled ? "#E1E1E1" : "#CCCCCC" };
+    cursor          : ${ props => props.disabled ? ""        : "pointer" };
   }
 `
 
 const ButtonGroup = styled.div`
-  display         : flex;
-  justify-content : flex-end;
-  gap             : 10px;
+  display           : flex;
+  justify-content   : flex-end;
+  gap               : 10px;
 `
 
 const PostList = () => {
 
   const [posts, setPosts]=React.useState([]);
-	const [currentPage, setCurrentPage] = React.useState(1);
+  const [currentPage, setCurrentPage] = React.useState(1);
   const [postsPerPage, setPostsPerPage] = React.useState(5);
   const [openDelete, setOpenDelete] = React.useState(false);
   const [checkedList, setCheckedLists] = React.useState([]);
@@ -60,12 +60,12 @@ const PostList = () => {
     .then(res => {
       setPosts(res.data)
     })
-    .catch(err=>{
+    .catch(err => {
       console.log(err)
     });
-  }, []);
+  },[]);
 
-	const indexOfLast = currentPage * postsPerPage;
+  const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
 
   function currentPosts(tmp) {
@@ -103,7 +103,7 @@ const PostList = () => {
     setOpenAlert(true);
   };
 
-	const handleCloseAlert = () => {
+  const handleCloseAlert = () => {
     setOpenAlert(false);
   };
 
@@ -113,7 +113,7 @@ const PostList = () => {
         <PrimaryButton onClick={() => setOpenDelete(!openDelete)}>
           {openDelete? <div>선택 취소</div> : <div>목록 선택</div>}
         </PrimaryButton>
-        {openDelete&&checkedList.length>0 ? 
+          {openDelete&&checkedList.length>0 ? 
         <PrimaryButton onClick={handleOpenAlert}>삭제</PrimaryButton>:
         <DisabledButton disabled>삭제</DisabledButton>}
       </ButtonGroup>
@@ -141,24 +141,24 @@ const PostList = () => {
       </PostListWrapper> :
       <div>새 글을 작성해주세요.</div>}
       <Dialog
-				open={openAlert}
-				onClose={handleCloseAlert}
-				aria-labelledby="alert-dialog-title"
-				aria-describedby="alert-dialog-description"
-			>
-				<DialogTitle id="alert-dialog-title">
-					{"포스트 삭제"}
-				</DialogTitle>
-				<DialogContent>
-					<DialogContentText id="alert-dialog-description">
-						정말 글을 삭제하시겠습니까?
-					</DialogContentText>
-				</DialogContent>
-				<DialogActions>
-					<Button onClick={handleCloseAlert}>아니오</Button>
-					<Button onClick={handleDelete} autoFocus>네</Button>
-				</DialogActions>
-			</Dialog>
+        open={openAlert}
+        onClose={handleCloseAlert}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+        >
+        <DialogTitle id="alert-dialog-title">
+          {"포스트 삭제"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            정말 글을 삭제하시겠습니까?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseAlert}>아니오</Button>
+          <Button onClick={handleDelete} autoFocus>네</Button>
+        </DialogActions>
+      </Dialog>
     </Wrapper>
   )
 }
