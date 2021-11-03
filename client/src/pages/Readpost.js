@@ -15,52 +15,51 @@ import dayjs from 'dayjs';
 import CommentList from '../containers/CommentList';
 
 const PostWrapper = styled.div`
-	min-height			: 500px;
+	min-height      : 600px;
 `
 
-const Line = styled.div`
-	margin					: 16px 0px;
-	height					: 1px;
+const Line = styled.hr`
+	margin          : 16px 0px;
+	height          : 0.5px;
 	background-color: #46508c;
 `
 
 const Date = styled.div`
-	display					:	inline-block;
+	display         : inline-block;
 	font-size       : 12px;
-	color: #888888;
+	color           : #888888;
 `
 
 const EditButton = styled.button`
-	border					: none;
-	background			: none;
-	display					:	inline-block;
-	cursor					:	pointer;
+	border          : none;
+	background      : none;
+	display         : inline-block;
+	cursor          : pointer;
 	font-size       : 12px;
-	color						: #888888;
-	font-weight			: 500;
+	color           : #888888;
 `
 
 const Wrapper = styled.div`
-	display					: flex;
-	justify-content	: space-between;
-	align-items			: center;
+	display         : flex;
+	justify-content : space-between;
+	align-items     : center;
 `
 
 const ContentWrapper = styled.div`
-	min-height			: 250px;
+	min-height      : 250px;
 `
 
 const Title = styled.h1`
-	margin					: 0px;
-	color						: #333333;
-	margin-bottom		: 10px;
+	margin          : 0px;
+	color           : #333333;
+	margin-bottom   : 12px;
 `
 
 const Content = styled.p`
-	font-size				: 14px;
-	line-height			: 20px;
-	font-weight			: 500;
-	color						: #565656;
+	font-size       : 14px;
+	line-height     : 20px;
+	font-weight     : 500;
+	color           : #565656;
 `
 
 const ReadPost = () => {
