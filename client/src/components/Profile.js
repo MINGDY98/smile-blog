@@ -1,4 +1,4 @@
-import React,{useState,useRef} from 'react';
+import React,{ useState,useRef } from 'react';
 import axios from 'axios';
 import {
   Avatar,
@@ -30,7 +30,7 @@ const Profile = () => {
       setFile(e.target.files[0]);
       const img = URL.createObjectURL(e.target.files[0]);
       console.log(img);
-      axios.post("http://localhost:4000/upload", { 
+      axios.put("http://localhost:4000/upload", { 
         "img"      : img, 
       }) 
       .then( function (response) {

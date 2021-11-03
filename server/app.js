@@ -41,7 +41,7 @@ app.post('/write', async (req, res, next) => {
   }
 });
 
-app.post('/upload', async (req, res, next) => {
+app.put('/upload', async (req, res, next) => {
    
   let {img}=req.body;
   console.log("img",img);
@@ -105,7 +105,7 @@ app.get('/read/:id', async (req, res, next) => {
   }
 });
 
-app.post('/update', async (req, res, next) => {
+app.put('/update', async (req, res, next) => {
    
   let {id,title,content}=req.body;
 
@@ -173,6 +173,7 @@ app.post('/createComment', async (req, res, next) => {
 app.delete('/delete/comment/:id', async (req, res, next) => {
 
   let {id}=req.params;
+
   try {
     const sql = `DELETE FROM smile_log.comment
                     WHERE commentId=?;`

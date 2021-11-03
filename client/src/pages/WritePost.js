@@ -93,7 +93,7 @@ const WritePost= () => {
 				});
 			}else{//수정할 경우
 
-				axios.post('http://localhost:4000/update',{
+				axios.put('http://localhost:4000/update',{
 					"id"				: id,
 					"title"   	: values.title, 
 					"content"   : values.content, 

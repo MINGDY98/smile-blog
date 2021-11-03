@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components"
 import dayjs from 'dayjs';
-import { Collapse} from '@mui/material';
+import { Collapse } from '@mui/material';
 import DeleteComment from './DeleteComment';
 
 const EditButton = styled.button`

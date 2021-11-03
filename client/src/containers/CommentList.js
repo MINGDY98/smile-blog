@@ -42,8 +42,8 @@ const CommentList = ({id,post}) => {
   }
 
 	const handleSubmit = (e) => {
-		if(values.id==""||values.password==""||values.comment==""){
-			if(values.comment==""){
+		if(values.id===""||values.password===""||values.comment===""){
+			if(values.comment===""){
 				alert("댓글을 입력해주세요!");
 			}
 			else{
