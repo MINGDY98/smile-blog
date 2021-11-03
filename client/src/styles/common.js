@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Spacer = styled.div`
-  flex-grow				: 1;
+  flex-grow   : 1;
 `
 
 export const Padding = styled.div`
-	padding-top 		: 15px;
+  padding-top : 15px;
 `
 
 export const PrimaryButton = styled.button`
@@ -18,6 +18,6 @@ export const PrimaryButton = styled.button`
   cursor          : pointer;
   color           : white;
   &:hover {
-    background-color : #fc6020;
-  }
+  background-color: #fc6020;
+}
 `

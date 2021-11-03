@@ -10,20 +10,20 @@ import PostList from '../containers/PostList';
 import Profile from '../components/Profile';
 
 const ProfileWrapper = styled.div`
-	display					: flex;
-	justify-content	: center;
+  display         : flex;
+  justify-content : center;
 `
 
 const Main = () => {
 
   return (
-		<Container maxWidth="md">
-			<ProfileWrapper>
-				<Profile/>
-			</ProfileWrapper>
-			<Padding/>
-			<PostList/>
-		</Container>
+    <Container maxWidth="md">
+      <ProfileWrapper>
+        <Profile/>
+      </ProfileWrapper>
+      <Padding/>
+      <PostList/>
+    </Container>
   )
 }
 export default Main;
