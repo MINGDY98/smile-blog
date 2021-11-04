@@ -68,7 +68,6 @@ const ReadPost = () => {
   const { id } = useParams();
   const [openAlert, setOpenAlert] = React.useState(false);
   const [post, setPost] = React.useState([]);
-  
   const callPostApi = async()=>{
     const response = await axios.get('http://localhost:4000/read/'+ id);
     return response.data;
@@ -121,9 +120,14 @@ const ReadPost = () => {
         </Wrapper>
         <Line/>
         <ContentWrapper>
-          <Content>
-          {post.content}
-          </Content>
+        {post.content&&post.content.split("\n").map((line) => { //this.props.data.content: 내용
+            return (
+              <span>
+                {line}
+                <br />
+              </span>
+            );
+          })}
         </ContentWrapper>
         <Line/>
         <CommentList id={id} post={post}/>

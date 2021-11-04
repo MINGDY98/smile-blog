@@ -149,9 +149,7 @@ const PostList = () => {
               }}
               onChange={(e) => onCheckedElement(e.target.checked, post.idpost)}
               checked={checkedList.includes(post.idpost) ? true : false}/>: <></>}
-            <Post 
-              data = {post} 
-            />
+            <Post data = {post}/>
         </PostWrapper>
         ))} 
         <Pagination 
