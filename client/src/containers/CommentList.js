@@ -5,46 +5,47 @@ import Comment from '../components/Comment';
 import { PrimaryButton } from '../styles/common';
 
 const InfoWrapper = styled.div`
-	display					: flex;
-	flex-direction  : row;
-	gap							: 10px;
+  display         : flex;
+  flex-direction  : row;
+  gap             : 10px;
 `
 
 const Wrapper = styled.div`
-	padding-bottom	: 100px;
+  padding-bottom  : 100px;
 `
 
 const CommentInput = styled.textarea`
-	border          : 1px solid #46508c;
-	font-size       : 14px;
-	width						: calc(100% - 20px);
-	margin          : 10px 0px 12px 0px;
-	padding 				: 10px;
-	color           : #676A59;
-	font-size				: 12px;
-	font-weight			: 600;
-	border-radius		: 5px;
+  border          : 1px solid #46508c;
+  font-size       : 14px;
+  width           : calc(100% - 20px);
+  margin          : 10px 0px 12px 0px;
+  padding         : 10px;
+  color           : #676A59;
+  font-size       : 12px;
+  font-weight     : 600;
+  border-radius   : 5px;
+  resize          : none;
 `
 
 const CommentsWrapper = styled.div`
-	font-size       : 14px;
-	margin          : 12px 0px 12px 0px;
-	background-color:	#f0f2f5;
+  font-size       : 14px;
+  margin          : 12px 0px 12px 0px;
+  background-color: #f0f2f5;
 `
 
 const CommentForm = styled.input`
-	border					: none;
-	padding					: 8px 15px;
-	width						: 100%;
-	border-radius		: 5px;
-	background-color: #F1F1F1;
-	color						: #565656;
-	font-weight			: 600;
+  border          : none;
+  padding         : 8px 15px;
+  width           : 100%;
+  border-radius   : 5px;
+  background-color: #F1F1F1;
+  color           : #565656;
+  font-weight     : 600;
 `
 
 const SubmitWrapper = styled.div`
-	display					: flex;
-	justify-content	: flex-end;
+  display         : flex;
+  justify-content : flex-end;
 `
 
 const CommentList = ({id,post}) => {
@@ -95,19 +96,19 @@ const CommentList = ({id,post}) => {
     <Wrapper>
       <InfoWrapper>
         <CommentForm
-        fullWidth
-        name="id" 
-        placeholder="닉네임"
-        value={values.id}
-        onChange={handleChange}
+          fullWidth
+          name="id" 
+          placeholder="닉네임"
+          value={values.id}
+          onChange={handleChange}
         />
         <CommentForm
-        fullWidth
-        name="password" 
-        type="password"
-        placeholder="비밀번호"
-        value={values.password}
-        onChange={handleChange}
+          fullWidth
+          name="password" 
+          type="password"
+          placeholder="비밀번호"
+          value={values.password}
+          onChange={handleChange}
         />
       </InfoWrapper>
       <CommentInput
@@ -117,7 +118,7 @@ const CommentList = ({id,post}) => {
         value={values.comment}
         onChange={handleChange}
         multiline
-        rows={5}
+        rows={7}
       />
       <SubmitWrapper>
         <PrimaryButton onClick={handleSubmit}>

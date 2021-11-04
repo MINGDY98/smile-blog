@@ -68,6 +68,7 @@ const ReadPost = () => {
   const { id } = useParams();
   const [openAlert, setOpenAlert] = React.useState(false);
   const [post, setPost] = React.useState([]);
+  
   const callPostApi = async()=>{
     const response = await axios.get('http://localhost:4000/read/'+ id);
     return response.data;
