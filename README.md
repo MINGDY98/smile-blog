@@ -55,5 +55,31 @@ Smilegate stove를 상징하는 두 가지 색상을 테마로 사용하였고 v
 
 ### 5. 프로젝트 구조
 
-<pre><code>{code}</code></pre>
+📦src
+ ┣ 📂components
+ ┃ ┣ 📜Comment.js
+ ┃ ┣ 📜DeleteComment.js
+ ┃ ┣ 📜Pagination.js
+ ┃ ┣ 📜Post.js
+ ┃ ┣ 📜Profile.js
+ ┃ ┗ 📜Title.js
+ ┣ 📂containers
+ ┃ ┣ 📜CommentList.js
+ ┃ ┣ 📜NavigationBar.js
+ ┃ ┗ 📜PostList.js
+ ┣ 📂pages
+ ┃ ┣ 📜Main.js
+ ┃ ┣ 📜Readpost.js
+ ┃ ┗ 📜WritePost.js
+ ┣ 📂styles
+ ┃ ┗ 📜common.js
+ ┣ 📜App.css
+ ┣ 📜App.js
+ ┣ 📜App.test.js
+ ┣ 📜index.css
+ ┣ 📜index.js
+ ┣ 📜logo.svg
+ ┣ 📜reportWebVitals.js
+ ┗ 📜setupTests.js
+
 
