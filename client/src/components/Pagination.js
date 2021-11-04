@@ -16,9 +16,9 @@ const PageLi = styled.li`
   width           : 25px;
   height          : 25px;
   color           : rgba(252, 96, 32, 1);
+  background-color: rgba(252, 96, 32, 0.25);
   border-radius   : 50%;
   cursor          : pointer;
-  border: 1px solid rgb(252, 96, 32);
   &:hover{
     cursor          : pointer;
     color           : white;

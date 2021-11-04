@@ -8,24 +8,19 @@ const CircleImg = styled.img`
 `
 
 const ImgWrapper = styled.div`
-  position        : relative;
-  width           : 72px;
-  height          : 72px;
+  width           : 108px;
+  height          : 108px;
   overflow        : hidden;
   border-radius   : 50%;
   display         : flex;
   justify-content : center;
-  margin-right    : 10px;
+  margin-right    : 14px;
 `
 
 const IntroduceText = styled.div`
   font-size       : 12px;
   font-weight     : 500;
   color           : #888888;
-`
-
-const IntroduceWrapper = styled.div`
-  text-align      : left;
 `
 
 const ProfileWrapper = styled.div`
@@ -39,7 +34,7 @@ const ProfileWrapper = styled.div`
 
 const IntroduceName = styled.p`
   color           : #333333;
-  margin          : 0px;
+  margin          : 0px 0px 6px 0px;
   font-size       : 20px;
   font-weight     : 600;
 `
@@ -67,17 +62,17 @@ const Profile = () => {
       <ImgWrapper>
         <CircleImg
           src={Image} 
-          alt="Avatar"
+          alt="user"
         />
       </ImgWrapper>
-      <IntroduceWrapper>
+      <div>
         <IntroduceName>
           김민지
         </IntroduceName>
         <IntroduceText>
           {introduce}
         </IntroduceText>
-      </IntroduceWrapper>
+      </div>
     </ProfileWrapper>
   )
 }
