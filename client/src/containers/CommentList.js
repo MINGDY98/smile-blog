@@ -75,7 +75,7 @@ const CommentList = ({id,post}) => {
 
       }else{
         alert('댓글이 등록되었습니다!');
-        axios.post('http://localhost:4000/createComment',{
+        axios.post('http://localhost:4000/comment/write',{
         "postId"    : id,
         "id"        : values.id, 
         "password"  : values.password, 

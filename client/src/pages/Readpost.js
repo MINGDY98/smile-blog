@@ -68,7 +68,7 @@ const ReadPost = () => {
   const [openAlert, setOpenAlert] = React.useState(false);
   const [post, setPost] = React.useState([]);
   const callPostApi = async()=>{
-    const response = await axios.get('http://localhost:4000/read/'+ id);
+    const response = await axios.get('http://localhost:4000/post/read/'+ id);
     return response.data;
   }
 
@@ -90,7 +90,7 @@ const ReadPost = () => {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    axios.delete('http://localhost:4000/delete/post/'+id) 
+    axios.delete('http://localhost:4000/post/delete/'+id) 
     .then(function ( response ) { 
       console.log( response ); 
       window.location.href="/";

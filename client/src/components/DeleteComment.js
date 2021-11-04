@@ -52,7 +52,7 @@ const DeleteComment = ({comment}) => {
     }else if(commentDelete.password !== comment.password) {
       alert( "비밀번호가 틀렸습니다." );
     }else{
-      axios.delete('http://localhost:4000/delete/comment/'+comment.commentId) 
+      axios.delete('http://localhost:4000/comment/delete/'+comment.commentId) 
       .then(function ( response ) { 
         console.log( response ); 
         alert('댓글이 삭제되었습니다!');

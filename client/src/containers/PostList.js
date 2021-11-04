@@ -69,7 +69,7 @@ const PostList = () => {
   const [openAlert, setOpenAlert] = React.useState(false);
 
   const callApi = async()=>{
-    const res = await axios.get('http://localhost:4000/postList');
+    const res = await axios.get('http://localhost:4000/post/read');
     return res.data
   }
 
@@ -106,7 +106,7 @@ const PostList = () => {
   const handleDelete = (e) => {
     e.preventDefault();
     checkedList.forEach((el)=>{
-      axios.delete('http://localhost:4000/delete/post/'+el) 
+      axios.delete('http://localhost:4000/post/delete/'+el) 
       .then(function ( response ) { 
         console.log( response ); 
       }) 

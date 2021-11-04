@@ -44,7 +44,7 @@ const Profile = () => {
   const [Image, setImage] = React.useState("profile.png")
   const [introduce, setIntroduce]=React.useState("");
   const callLatestApi = async()=>{
-  const response = await axios.get('http://localhost:4000/profile');
+  const response = await axios.get('http://localhost:4000/user');
     return response.data.data;
   }
 

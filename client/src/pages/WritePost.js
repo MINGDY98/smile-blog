@@ -47,7 +47,7 @@ const WritePost= () => {
   });
 
   const callPostApi = async()=>{
-    const response = await axios.get('http://localhost:4000/read/'+ id);
+    const response = await axios.get('http://localhost:4000/post/read/'+ id);
     return response.data;
   }
 
@@ -84,7 +84,7 @@ const WritePost= () => {
     }else{
       if(id==null){
 
-        axios.post('http://localhost:4000/write',{ 
+        axios.post('http://localhost:4000/post/write',{ 
           "title"   	: values.title, 
           "content"   : values.content, 
         }) 
@@ -96,7 +96,7 @@ const WritePost= () => {
         });
       }else{//수정할 경우
 
-        axios.put('http://localhost:4000/update',{
+        axios.put('http://localhost:4000/post/update',{
           "id"				: id,
           "title"   	: values.title, 
           "content"   : values.content, 
