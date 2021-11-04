@@ -120,13 +120,13 @@ const ReadPost = () => {
         <Line/>
         <ContentWrapper>
         {post.content&&post.content.split("\n").map((line) => { //this.props.data.content: 내용
-            return (
-              <Content >
-                {line}
-                <br/>
-              </Content >
-            );
-          })}
+          return (
+            <Content >
+              {line}
+              <br/>
+            </Content >
+          );
+        })}
         </ContentWrapper>
         <Line/>
         <CommentList id={id} post={post}/>

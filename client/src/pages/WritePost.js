@@ -126,7 +126,7 @@ const WritePost= () => {
         name="content" 
         placeholder="당신의 이야기를 적어주세요."
         multiline
-        rows={25}
+        rows={36}
         value={values.content}
         onChange={handleChange}
       />
