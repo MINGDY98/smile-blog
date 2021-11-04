@@ -10,8 +10,9 @@ const EditButton = styled.button`
   display         : inline-block;
   cursor          : pointer;
   font-size       : 10px;
-  color           : #CCCCCC;
+  color           : #888888;
 `
+
 const CommenterInfo = styled.div`
   padding         : 10px;
   display         : flex;
@@ -19,13 +20,17 @@ const CommenterInfo = styled.div`
 `
 
 const CommentWrapper = styled.div`
-  font-size       : 14px;
+  font-size       : 12px;
   margin          : 0px 12px 0px 12px;
+  color           : #565656;
+  font-weight     : 500;
 `
 
-const Line = styled.div`
+const Line = styled.hr`
   margin          : 16px 0px 0px 0px;
-  border-top      : 1px solid #46508c;
+  border          : 0;
+  height          : 1px;
+  background-color: #46508c;
 `
 
 const Date = styled.span`
@@ -40,14 +45,6 @@ const CommentHeader = styled.p`
   font-size       : 16px;
   margin          : 0px;
   font-weight     : 600;
-`
-
-const CommentContent = styled.p`
-  font-size       : 12px;
-  font-weight     : 16px;
-  margin          : 0;
-  color           : #565656;
-  font-weight     : 500;
 `
 
 const DeleteContainer = styled.div`
@@ -76,9 +73,7 @@ const Comment = ({ comment }) => {
         </Collapse>
       </DeleteContainer>
       <CommentWrapper>
-        <CommentContent>
         {comment.comment}
-        </CommentContent>
       </CommentWrapper>
       <Line/>
     </div>

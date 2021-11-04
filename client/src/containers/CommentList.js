@@ -21,7 +21,6 @@ const CommentInput = styled.textarea`
   margin          : 10px 0px 12px 0px;
   padding         : 10px;
   color           : #676A59;
-  font-size       : 12px;
   font-weight     : 600;
   border-radius   : 5px;
   resize          : none;
@@ -118,7 +117,7 @@ const CommentList = ({id,post}) => {
         value={values.comment}
         onChange={handleChange}
         multiline
-        rows={7}
+        rows={6}
       />
       <SubmitWrapper>
         <PrimaryButton onClick={handleSubmit}>
