@@ -10,31 +10,31 @@ Smilegate stove를 상징하는 두 가지 색상을 테마로 사용하였고 v
 
 ### 2. 실행 화면
 
-<메인 페이지>
+* **메인 페이지**
 
 <img width="960" alt="메인화면" src="https://user-images.githubusercontent.com/38098157/140370538-cb0d2668-c34d-4c01-8107-a850b9e391f0.PNG">
 
-<글목록 삭제 화면>
+* **글목록 삭제 화면**
 
 <img width="960" alt="글목록 삭제 화면" src="https://user-images.githubusercontent.com/38098157/140371260-142da60a-efb5-4d64-901f-8d7a64da2dc6.PNG">
 
-<포스트 화면>
+* **포스트 화면**
 
 <img width="959" alt="포스트화면" src="https://user-images.githubusercontent.com/38098157/140371767-e4640d49-328f-4006-be85-32ab7ba990aa.PNG">
 
-<포스트 작성 화면>
+* **포스트 작성 화면**
 
 <img width="958" alt="포스트작성화면" src="https://user-images.githubusercontent.com/38098157/140370899-13a7da36-ca30-46a0-b6b8-458ba34fa74b.PNG">
 
-<포스트 수정 화면>
+* **포스트 수정 화면**
 
 <img width="958" alt="포스트수정화면" src="https://user-images.githubusercontent.com/38098157/140371066-83cfee4d-8a85-44e5-99c5-a34b447e30a0.PNG">
 
-<댓글 작성 화면>
+* **댓글 작성 화면**
 
 <img width="960" alt="댓글작성화면" src="https://user-images.githubusercontent.com/38098157/140371514-d8a15c2c-e5a5-48fa-b822-4e3847bbae8d.PNG">
 
-<댓글 삭제 화면>
+* **댓글 삭제 화면**
 
 <img width="960" alt="댓글삭제화면" src="https://user-images.githubusercontent.com/38098157/140372136-3638f724-f1ac-4ab9-abe4-09fa10fb0b42.PNG">
 
@@ -57,9 +57,9 @@ Smilegate stove를 상징하는 두 가지 색상을 테마로 사용하였고 v
 - Node.js Express
 - MySQL
 - AWS rds
-- Restful Api
 - Html, Css
 
 ### 5. 프로젝트 구조
+
 <img width="89" alt="구조2" src="https://user-images.githubusercontent.com/38098157/140380782-3448f9cb-2ee4-4dd4-a9a2-f8c5e970fdc3.PNG">
 <img width="99" alt="구조1" src="https://user-images.githubusercontent.com/38098157/140380796-da971e6a-7dc7-4c3c-8df9-0d8ec5743ac7.PNG">
