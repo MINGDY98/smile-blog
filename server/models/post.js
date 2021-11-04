@@ -43,22 +43,6 @@ class Post{
     }
   }
 
-  async readComments(id){
-    try{
-      const sqlComment=`
-        SELECT * 
-        FROM smile_log.comment 
-        WHERE postId = ?
-      `
-      const result = await pool.query(sqlComment, [
-        id
-      ])
-			return result;
-		}catch(err) {
-      throw err;
-    }
-  }
-
   async updatePost(id,title,content){
     try{
       const sql=`
@@ -89,7 +73,7 @@ class Post{
   }
 
   async deletePost(id){
-    console.log("왔다.");
+
     try{
       const sql=`
         DELETE FROM smile_log.post

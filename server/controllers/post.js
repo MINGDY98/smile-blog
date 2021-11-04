@@ -84,7 +84,6 @@ exports.updatePost = async (req, res, next) => {
 exports.deletePost = async (req, res, next) => {
   let {id}=req.params;
   try {
-    console.log("ㅇㅇ");
     const result = await POST.deleteComment(id);
     const result2 = await POST.deletePost(id);
     res.json({ 
