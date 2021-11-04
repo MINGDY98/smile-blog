@@ -57,8 +57,7 @@ const Title = styled.h1`
 `
 
 const Content = styled.p`
-  font-size       : 14px;
-  line-height     : 20px;
+  font-size       : 16px;
   font-weight     : 500;
   color           : #565656;
 `
@@ -122,10 +121,10 @@ const ReadPost = () => {
         <ContentWrapper>
         {post.content&&post.content.split("\n").map((line) => { //this.props.data.content: 내용
             return (
-              <span>
+              <Content >
                 {line}
-                <br />
-              </span>
+                <br/>
+              </Content >
             );
           })}
         </ContentWrapper>
