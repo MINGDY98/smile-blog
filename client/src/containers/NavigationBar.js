@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {
   PrimaryButton
 } from '../styles/common';
+import { Container } from '@mui/material';
 import Title from '../components/Title';
 
 const NavigationWrapper = styled.div`
@@ -22,16 +23,19 @@ const ButtonWrapper = styled.div`
 const NavigationBar = () => {
 
   return (
-    <NavigationWrapper>
-      <ButtonWrapper>
-        <Title/>
-        <PrimaryButton
-        onClick={() => window.location.href="/write"}
-        >
-          새 글 작성
-        </PrimaryButton>
-      </ButtonWrapper>
-    </NavigationWrapper>
+    <Container maxWidth="md">
+      <NavigationWrapper>
+        <ButtonWrapper>
+          <Title/>
+          <PrimaryButton
+          onClick={() => window.location.href="/write"}
+          >
+            새 글 작성
+          </PrimaryButton>
+        </ButtonWrapper>
+      </NavigationWrapper>
+    </Container>
+
   )
 }
 export default NavigationBar;

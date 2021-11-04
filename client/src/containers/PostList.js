@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import styled from "styled-components"
+import { makeStyles } from '@mui/styles';
 import {
   PrimaryButton
 } from '../styles/common';
@@ -10,7 +11,8 @@ import {
   DialogActions,
   DialogTitle,
   DialogContentText,
-  DialogContent
+  DialogContent,
+  Checkbox,
 }from '@mui/material';
 import Post from '../components/Post';
 import Pagination from '../components/Pagination';
@@ -25,6 +27,7 @@ const PostListWrapper = styled.div`
 
 const PostWrapper = styled.div`
   display           : flex;
+  align-items       : center;
 `
 
 const DisabledButton = styled(PrimaryButton)`
@@ -41,8 +44,23 @@ const ButtonGroup = styled.div`
   gap               : 10px;
 `
 
+const useStyles = makeStyles({
+
+  root: {
+    paddingRight:'20px',
+    background: "none",
+    color:"#fc6020",
+    "&$checked": {
+      color: "#fc6020"
+    }
+  },
+  checked: {}
+});
+
+
 const PostList = () => {
 
+  const classes = useStyles();
   const [posts, setPosts]=React.useState([]);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [postsPerPage, setPostsPerPage] = React.useState(5);
@@ -121,17 +139,20 @@ const PostList = () => {
       <PostListWrapper>
         {currentPosts(posts).map((post,index)=>(
           <PostWrapper key={index}>
-            {openDelete ?             
-            <input
+            {openDelete ?
+            <Checkbox
+              disableRipple
               id={post.idpost}
-              type="checkbox"
+              classes={{
+                root: classes.root,
+                checked: classes.checked
+              }}
               onChange={(e) => onCheckedElement(e.target.checked, post.idpost)}
-              checked={checkedList.includes(post.idpost) ? true : false}
-            /> : <></>}
+              checked={checkedList.includes(post.idpost) ? true : false}/>: <></>}
             <Post 
               data = {post} 
             />
-          </PostWrapper>
+        </PostWrapper>
         ))} 
         <Pagination 
           postsPerPage={postsPerPage}
